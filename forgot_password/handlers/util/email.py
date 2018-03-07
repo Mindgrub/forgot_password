@@ -31,6 +31,9 @@ class Mailer:
         html_args = (html, encoding) if html else None
         headers = []
 
+        # pyzmail expects a tuple for sender
+        sender = ('', sender)
+
         if reply_to:
             headers.append(('Reply-To', reply_to))
 
